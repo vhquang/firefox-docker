@@ -1,7 +1,16 @@
 FROM ubuntu:16.04
 
 RUN apt-get update && \
-        apt-get install -y firefox
+        apt-get install -y wget bzip2 libgtk-3 libdbus-glib-1-2
+
+WORKDIR /usr/lib
+
+ARG url="http://ftp.mozilla.org/pub/firefox/releases/55.0.3/linux-x86_64/en-US"
+ARG file="firefox-55.0.3.tar.bz2"
+
+RUN wget $url/$file && \
+        tar xvjf $file && \
+        rm $file
 
 # get your uid and gid on your host machine with `id`
 RUN export uid=1000 gid=1000 && \
@@ -16,4 +25,4 @@ RUN export uid=1000 gid=1000 && \
 USER developer
 ENV HOME /home/developer
 
-ENTRYPOINT ["/usr/bin/firefox"]
+ENTRYPOINT ["/usr/lib/firefox/firefox"]
