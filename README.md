@@ -1,5 +1,9 @@
 This is a collection of Dockerfile that allow me to run different versions of Firefox in Docker container (mainly on Ubuntu system).
 
+# Why is this needed?
+
+Running Firefox in container allows us to running more than one version of Firefox, simultaneously. This is very helpful for testing web app compatibility and detect browser issue.
+
 # Structure
 
 Different version of Firefox will be in their own folder. The `build.sh` and `run.sh` give an idea on how to build and how to run these containers. They just serve as an example usage.

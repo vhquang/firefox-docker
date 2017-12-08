@@ -1,4 +1,5 @@
 FROM ubuntu:16.04
+LABEL maintainer "Quang Vu <vhquang@gmail.com>"
 
 RUN apt-get update && \
         apt-get install -y firefox
